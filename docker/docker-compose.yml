@@ -6,20 +6,37 @@ services:
     security_opt:
       - seccomp:unconfined
     environment:
-      TZ: 'Asia/Shanghai'
-      OPEN_AI_API_KEY: 'YOUR API KEY'
-      MODEL: 'gpt-3.5-turbo'
+      OPEN_AI_API_KEY: 'YOUR KEY'
       PROXY: ''
-      SINGLE_CHAT_PREFIX: '["bot", "@bot"]'
+      SINGLE_CHAT_PREFIX: '[""]'
       SINGLE_CHAT_REPLY_PREFIX: '"[bot] "'
       GROUP_CHAT_PREFIX: '["@bot"]'
-      GROUP_NAME_WHITE_LIST: '["ChatGPT测试群", "ChatGPT测试群2"]'
+      GROUP_NAME_WHITE_LIST: '["测试群", "测试群2"]'
       IMAGE_CREATE_PREFIX: '["画", "看", "找"]'
       CONVERSATION_MAX_TOKENS: 1000
       SPEECH_RECOGNITION: 'False'
-      CHARACTER_DESC: '你是ChatGPT, 一个由OpenAI训练的大型语言模型, 你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。'
+      CHARACTER_DESC: '你是基于大语言模型的AI智能助手，旨在回答并解决人们的相关拉卡拉问题，并且可以使用多种语言与人交流。'
       EXPIRES_IN_SECONDS: 3600
       USE_GLOBAL_PLUGIN_CONFIG: 'True'
       USE_LINKAI: 'False'
       LINKAI_API_KEY: ''
       LINKAI_APP_CODE: ''
+      ## 配置从以下开始
+      ## 模型名称 注意此文件只保留一个模型名称，其余删掉
+      MODEL: 'deep seek'
+      # 4.1小节申请的 gemini api key
+      GEMINI_API_KEY: 'sk-81c5b9dcebaf428fba34e1fbbe75a673'
+      CHANNEL_TYPE: "wechatcom_app"                
+      # 企业微信->我的企业->企业ID       
+      WECHATCOM_CORP_ID: "ww9202d7d614ec5918"
+      # 企业微信->应用管理->应用->Secret                      
+      WECHATCOMAPP_SECRET: "2hlPaw5Ww_ioksXFA02dPhvC9LFtZCcx5f2ZvSOxvE8"
+      # 企业微信->应用管理->应用->AgentId             
+      WECHATCOMAPP_AGENT_ID: "1000008"
+      # 企业微信->应用管理->应用->接收消息->设置API接收->Token          
+      WECHATCOMAPP_TOKEN: "xkRpMCELENHa6X1L1"
+      # 企业微信->应用管理->应用->接收消息->设置API接收->EncodingAESKey  
+      WECHATCOMAPP_AES_KEY: "Umv2LsepLHSFuTzqWtuGVPp1jhgFUAXF2oXjo1pZeph"
+      WECHATCOMAPP_PORT": 9898       
+    ports:
+      - 9898:9898
